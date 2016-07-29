@@ -369,3 +369,21 @@ AroundFunctionalityData aroundFunctionalityData = new AroundFunctionalityData( t
     db.insertAroundFunctionalityRow(aroundFunctionalityData);
     db.close();
 ```
+### Sending the data
+Send the json data in your hashmap by calling this:
+```sh
+DatabaseHelper db = new DatabaseHelper( context )
+db.fetch_performance_data();
+```
+whenever you want to send this data accross to your backend server.
+Also, you can use the following function to empty the data in your code, in case you need to(inside *DatabaseHelper.java*):
+```sh
+private void private_resetPerformanceMetricsTables() {
+    SQLiteDatabase db = this.getWritableDatabase();
+    db.execSQL("delete from " + TABLE_ERROR_STACK);
+    db.execSQL("delete from " + TABLE_AROUND_FUNCTIONALITY);;
+}
+```
+
+## Enjoy!
+In case you have any queries or suggestions, feel free to ping me @sidsverma on twitter. Also, feel free to create a pull request for any enhancements! I'll keep enhancing this as time permits.
